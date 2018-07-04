@@ -18,10 +18,14 @@
 
 <?php
 include ("connection.php");
+session_start();
 
 /* validasi halaman tanpa login */
-if ($_SESSION['status'] = ''){
-header("Location:./index.php");
+if(!isset($_SESSION['username']))
+{
+    // belum login
+    header('Location: index.php');
+    exit();
 }
 ?>
 
@@ -33,11 +37,11 @@ nomor form
     <?php
     $val = $_POST['pilihan_form']?:'';
 
-    $sql = "SELECT DISTINCT nomor_form FROM data_form_pertanyaan";
+    $sql = "SELECT DISTINCT nama_form FROM data_form_pertanyaan";
 	$result = mysqli_query($conn, $sql);
 	
     while($row = mysqli_fetch_assoc($result)) {		
-        echo '<option value ="' . $row['nomor_form'] . '" '. $selected .'>' . $row['nomor_form'] . '</option>';
+        echo '<option value ="' . $row['nama_form'] . '" '. $selected .'>' . $row['nama_form'] . '</option>';
     }
 	
     ?>

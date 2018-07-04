@@ -31,6 +31,7 @@
 <!-- valdasi username, password -->
 <?php
 include ("connection.php");
+$_SESSION['status'] = "";
 
 if(isset($_GET['username'])){
 	if($_GET['username'] == "kosong"){

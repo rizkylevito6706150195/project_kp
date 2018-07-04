@@ -5,7 +5,7 @@ $username	= $_POST["username"];
 $password	= $_POST["password"];
 $email		= $_POST["email"];
 $pin		= $_POST["pin"];
-$level		= 2;
+$level		= 'user';
 
 if ($username == ""){
 	header("location:registrasi.php?username=kosong");

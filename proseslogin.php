@@ -27,16 +27,31 @@ if($cek == 0){
 	//echo 'Username atau password salah';
 } else{
 	$row = mysqli_fetch_assoc($query);
-		if($row['level'] == 1){
-			session_start();
-			$_SESSION['username']=$username;
-			$_SESSION['status'] = 'login';
-			header("location:home_mentor.php");
-		}else{
+		if($row['level'] == 'user_mentee'){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
 			header("location:home_mt.php");
+		}else if ($row['level'] == 'user_mentor'){
+			session_start();
+			$_SESSION['username']=$username;
+			$_SESSION['status'] = 'login';
+			header("location:home_mentor.php");
+		}else if ($row['level'] == 'admin_regional'){
+			session_start();
+			$_SESSION['username']=$username;
+			$_SESSION['status'] = 'login';
+			header("location:home_admin_regional.php");
+		}else if ($row['level'] == 'admin_pusat'){
+			session_start();
+			$_SESSION['username']=$username;
+			$_SESSION['status'] = 'login';
+			header("location:home_admin_pusat.php");
+		}else if ($row['level'] == 'superadmin'){
+			session_start();
+			$_SESSION['username']=$username;
+			$_SESSION['status'] = 'login';
+			header("location:home_superadmin.php");
 		}
 	}
 }

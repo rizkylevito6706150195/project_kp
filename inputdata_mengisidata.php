@@ -13,23 +13,35 @@
 <?php
 
 include ("connection.php");
+session_start();
 
-/* ???????????? */
-$sql = 'SELECT * FROM data_form_pertanyaan WHERE nomor_form = ' .mysql_real_escape_string($_POST['pilihan_form']).'';
+/* validasi halaman tanpa login */
+if ($_SESSION['status'] = ''){
+header("Location:./index.php");
+}
+
+//$sql = 'SELECT * FROM data_form_pertanyaan WHERE nomor_form = ' .mysql_real_escape_string($_POST['pilihan_form']).''; // pakai nomor
+$sql = "SELECT * FROM data_form_pertanyaan WHERE nama_form = '".mysql_real_escape_string($_POST['pilihan_form'])."'";
 		
 $query = mysqli_query($conn, $sql);
 
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
-
-    // output data of each row
-    while($row = mysqli_fetch_assoc($query)) {
-        echo "" . $row["id_pertanyaan"]. ".";
-		echo "" . $row["pertanyaan"];
-		echo '<td><input class="text" type="text" id="idjawaban" name="jawaban"></td>';
-		echo "<br>";
-		
-    }
-
 ?>
+
+<form action="inputdata_mengisidata_selesai.php" method="post">
+	<?php
+		while($row = mysqli_fetch_assoc($query)) {
+			$id_pertanyaan=$row["id_pertanyaan"];
+			$pertanyaan=$row["pertanyaan"];
+			$jawaban=$row["jawaban"];
+			
+				echo "" . $row["id_pertanyaan"]. ".";
+				echo "" . $row["pertanyaan"];
+				echo '<td><input class="text" type="text" name="jawaban"></td>';
+				echo "<br>";
+		}
+	?>
+<input type="submit">
+	</form>
