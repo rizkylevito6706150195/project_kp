@@ -2,9 +2,9 @@
 <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 
 <ul>
-	<li><a href="home_mt.php">Input Data</a>
-	<li><a href="lihathistory_mt.php">Lihat History</a>
-	<li><a href="profil.php">Profil</a>
+	<li><a href="mentee_home.php">Input Data</a>
+	<li><a href="mentee_history.php">Lihat History</a>
+	<li><a href="mentee_profil.php">Profil</a>
 	<li style="float:right"><a href="logout.php">Logout</a>
 </ul>
 

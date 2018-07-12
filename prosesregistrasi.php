@@ -5,7 +5,7 @@ $username	= $_POST["username"];
 $password	= $_POST["password"];
 $email		= $_POST["email"];
 $pin		= $_POST["pin"];
-$level		= 'user';
+$level		= 'user_mentee';
 
 if ($username == ""){
 	header("location:registrasi.php?username=kosong");
@@ -35,7 +35,7 @@ $cekdata="select username from user where username='$username'";
 $ada=mysqli_query($conn, $cekdata) or die(mysql_error());
 if(mysqli_num_rows($ada)>0){
 	header("location:registrasi.php?telahdigunakan");
-	/*die("username telah digunakan");*/
+	//die("username telah digunakan");
 }
 
 $sqlstr="insert into user (username, password, email, level)

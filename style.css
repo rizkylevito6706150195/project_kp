@@ -1,6 +1,4 @@
 /* MENU LOGIN */
-
-
 * {
   padding: 0px;
   margin: 0px;
@@ -32,6 +30,7 @@
   color: #757575;
   padding-bottom: 40px;
 }
+
 
 /* menu profil */
 #profil {
@@ -169,24 +168,3 @@ li a:hover {
 		margin-left:auto;
         margin-right:auto;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

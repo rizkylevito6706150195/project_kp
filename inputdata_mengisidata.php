@@ -35,13 +35,17 @@ if (!$query) {
 		while($row = mysqli_fetch_assoc($query)) {
 			$id_pertanyaan=$row["id_pertanyaan"];
 			$pertanyaan=$row["pertanyaan"];
-			$jawaban=$row["jawaban"];
+			
 			
 				echo "" . $row["id_pertanyaan"]. ".";
 				echo "" . $row["pertanyaan"];
 				echo '<td><input class="text" type="text" name="jawaban"></td>';
 				echo "<br>";
 		}
+		
+
+		
+		
 	?>
 <input type="submit">
 	</form>

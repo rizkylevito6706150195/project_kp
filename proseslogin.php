@@ -31,27 +31,27 @@ if($cek == 0){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
-			header("location:home_mt.php");
+			header("location:mentee_home.php");
 		}else if ($row['level'] == 'user_mentor'){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
-			header("location:home_mentor.php");
+			header("location:mentor_home.php");
 		}else if ($row['level'] == 'admin_regional'){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
-			header("location:home_admin_regional.php");
+			header("location:adminr_home.php");
 		}else if ($row['level'] == 'admin_pusat'){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
-			header("location:home_admin_pusat.php");
+			header("location:adminp_home.php");
 		}else if ($row['level'] == 'superadmin'){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
-			header("location:home_superadmin.php");
+			header("location:superadmin.php");
 		}
 	}
 }
