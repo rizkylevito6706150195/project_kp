@@ -5,10 +5,28 @@
 	<li><a href="mentee_home.php">Input Data</a>
 	<li><a href="mentee_history.php">Lihat History</a>
 	<li><a href="mentee_profil.php">Profil</a>
-	<li style="float:right"><a href="logout.php">Logout</a>
+	<li style="float:right"><a href="fungsi/logout.php">Logout</a>
 </ul>
 
+<?php
+include ("fungsi/connection.php");
+session_start();
 
+/* validasi halaman tanpa login */
+if(!isset($_SESSION['username']))
+{
+    // belum login
+    header('Location: index.php');
+    exit();
+}
+
+/* validasi level user */
+if($_SESSION['level'] != 'mentee')
+{
+	header('Location: index.php');
+    exit();
+}
+?>
 
 
 
@@ -18,7 +36,7 @@
 <br><br>
 
 <?php
-include ("connection.php");
+include ("fungsi/connection.php");
 
 $sql = 'SELECT * 
 		FROM history_mentee';

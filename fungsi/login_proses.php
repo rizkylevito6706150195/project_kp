@@ -7,10 +7,10 @@ $usernamepassword = "";
 $_SESSION['status'] = "";
 
 if ($username == ""){
-	header("location:index.php?username=kosong");
+	header("location:../index.php?username=kosong");
 } else
 if ($password == ""){
-	header("location:index.php?password=kosong");
+	header("location:../index.php?password=kosong");
 } else
 
 $query = mysqli_query($conn, "select * from user where username='$username' and password='$password'");
@@ -23,7 +23,7 @@ $cek = mysqli_num_rows($query);
 
 if ($username != "" && $password != ""){
 if($cek == 0){
-	header("location:index.php?usernamepassword=salah");
+	header("../location:index.php?usernamepassword=salah");
 	//echo 'Username atau password salah';
 } else{
 	$row = mysqli_fetch_assoc($query);
@@ -31,27 +31,32 @@ if($cek == 0){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
-			header("location:mentee_home.php");
+			$_SESSION['level'] = 'mentee';
+			header("location:../mentee_home.php");
 		}else if ($row['level'] == 'user_mentor'){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
-			header("location:mentor_home.php");
+			$_SESSION['level'] = 'mentor';
+			header("location:../mentor_home.php");
 		}else if ($row['level'] == 'admin_regional'){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
-			header("location:adminr_home.php");
+			$_SESSION['level'] = 'admin_regional';
+			header("location:../admin_home.php");
 		}else if ($row['level'] == 'admin_pusat'){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
-			header("location:adminp_home.php");
+			$_SESSION['level'] = 'admin_pusat';
+			header("location:../admin_home.php");
 		}else if ($row['level'] == 'superadmin'){
 			session_start();
 			$_SESSION['username']=$username;
 			$_SESSION['status'] = 'login';
-			header("location:superadmin.php");
+			$_SESSION['level'] = 'superadmin';
+			header("location:../superadmin.php");
 		}
 	}
 }

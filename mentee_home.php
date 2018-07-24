@@ -6,7 +6,7 @@
 	<li><a href="mentee_home.php">Input Data</a>
 	<li><a href="mentee_history.php">Lihat History</a>
 	<li><a href="mentee_profil.php">Profil</a>
-	<li style="float:right"><a href="logout.php">Logout</a>
+	<li style="float:right"><a href="fungsi/logout.php">Logout</a>
 </ul>
 </div>
 
@@ -17,7 +17,7 @@
 <br><br>
 
 <?php
-include ("connection.php");
+include ("fungsi/connection.php");
 session_start();
 
 /* validasi halaman tanpa login */
@@ -27,10 +27,18 @@ if(!isset($_SESSION['username']))
     header('Location: index.php');
     exit();
 }
+
+/* validasi level user */
+if($_SESSION['level'] != 'mentee')
+{
+	header('Location: index.php');
+    exit();
+}
+
 ?>
 
 <?php
-include ("connection.php");
+include ("fungsi/connection.php");
 $_SESSION['status'] = "";
 
 if(isset($_GET['pilihan'])){
@@ -41,11 +49,13 @@ if(isset($_GET['pilihan'])){
 ?>
 
 <center>
-<form action="z_pilih_form.php" method="post">
+<form action="fungsi/mentee_combobox_proses.php" method="post">
 <select name="pilihan" onchange="handleSelect(this)">
 	<option value="" selected>Silahkan pilih form</option>
-    <option value="datadiri"> Form Data Diri </option>
-    <option value="formdua"> Form 2 </option>
+    <option value="form1"> Form 1 (Pengenalan Diri) </option>
+    <option value="form2"> Form 2 </option>
+	<option value="form3"> Form 3 (Kuesioner Mentee)</option>
+	<option value="form4"> Form 4 (Evaluasi Mentee) </option>
 </select>
 <input type="submit" name="Submit" value="submit">
 

@@ -7,7 +7,7 @@
 	<li><a href="mentor_logbook.php">Input Logbook</a>
 	<li><a href="mentor_history.php">Lihat History</a>
 	<li><a href="mentor_profil.php">Profil</a>
-	<li style="float:right"><a href="logout.php">Logout</a>
+	<li style="float:right"><a href="fungsi/logout.php">Logout</a>
 </ul>
 </div>
 
@@ -17,7 +17,7 @@
 <br><br>
 
 <?php
-include ("connection.php");
+include ("fungsi/connection.php");
 session_start();
 
 /* validasi halaman tanpa login */
@@ -30,7 +30,7 @@ if(!isset($_SESSION['username']))
 ?>
 
 <?php
-include ("connection.php");
+include ("fungsi/connection.php");
 $_SESSION['status'] = "";
 
 if(isset($_GET['pilihan'])){
@@ -41,7 +41,7 @@ if(isset($_GET['pilihan'])){
 ?>
 
 <center>
-<form action="z_pilih_form_mentor.php" method="post">
+<form action="fungsi/mentor_combobox_proses.php" method="post">
 <select name="pilihan" onchange="handleSelect(this)">
 	<option value="" selected>Silahkan pilih form</option>
     <option value=""> Form 1 </option>

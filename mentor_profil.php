@@ -1,36 +1,21 @@
 <link rel="stylesheet" href="style.css">
-<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 
-<ul>
-	<li><a href="mentee_home.php">Input Data</a>
-	<li><a href="mentee_history.php">Lihat History</a>
-	<li><a href="mentee_profil.php">Profil</a>
-	<li style="float:right"><a href="fungsi/logout.php">Logout</a>
+
+<div id="mynavigation">
+<ul class="navigaton">
+	<li><a href="mentor_home.php">Input Data</a>
+	<li><a href="mentor_logbook.php">Input Logbook</a>
+	<li><a href="mentor_history.php">Lihat History</a>
+	<li><a href="mentor_profil.php">Profil</a>
+	<li style="float:right"><a href="logout.php">Logout</a>
 </ul>
+</div>
+
+
 
 <?php
 include ("fungsi/connection.php");
 session_start();
-
-/* validasi halaman tanpa login */
-if(!isset($_SESSION['username']))
-{
-    // belum login
-    header('Location: index.php');
-    exit();
-}
-
-/* validasi level user */
-if($_SESSION['level'] != 'mentee')
-{
-	header('Location: index.php');
-    exit();
-}
-?>
-
-
-<?php
-include ("fungsi/connection.php");
 /* tes session */
 /*echo $_SESSION['username'];*/
 

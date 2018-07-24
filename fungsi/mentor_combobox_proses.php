@@ -4,18 +4,15 @@ $pilihan = $_POST['pilihan'];
 
 if(isset($pilihan)){   
 	if(empty($pilihan)){  
-		echo "Anda belum memilih!";  
+		header("location:../mentor_home.php?pilihan=kosong");
 	}
 	else if($pilihan == 'datadiri'){
-		header('Location: form1.php');
+		header('Location: ../mentor_form1.php');
 	}
 	else if($pilihan == 'formdua'){
-		//header('Location: mentee_home.php');
+		//header('Location: mentor_home.php');
 		echo "form ini belum tersedia";
 	}
 }
 	
-if ($pilihan == ""){
-	header("location:mentee_home.php?pilihan=kosong");
-}
 ?>

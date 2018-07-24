@@ -18,7 +18,7 @@
 <br><br><br><br><br>
 
 <center>
-<form action="mentor_logbook.proses.php" method="post" enctype="multipart/form-data">
+<form action="fungsi/mentor_logbook.proses.php" method="post" enctype="multipart/form-data">
 	<input type="file" name="file">
 	<input type="submit" name="upload" value="Upload">
 </form>

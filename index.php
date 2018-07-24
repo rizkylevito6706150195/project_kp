@@ -14,7 +14,7 @@
 
 	  <h2>Login</h2> <!-- membuat judul pembuka -->
 
-          <form class="fl" action="proseslogin.php" method="post">
+          <form class="fl" action="fungsi/login_proses.php" method="post">
             <input class="itpw" type="text" name="username" placeholder="Username"><br>
             <input class="itpw" type="password" name="password" placeholder="Password"><br>
             <input class="its" type="submit" name="login" value="login">
@@ -30,7 +30,7 @@
 
 <!-- valdasi username, password -->
 <?php
-include ("connection.php");
+include ("fungsi/connection.php");
 $_SESSION['status'] = "";
 
 if(isset($_GET['username'])){

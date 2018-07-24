@@ -14,7 +14,7 @@
 	  
 	  <h2>Registrasi</h2> <!-- membuat judul pembuka -->
 	  
-          <form class="fl" action="prosesregistrasi.php" method="post">
+          <form class="fl" action="fungsi/registrasi_proses.php" method="post">
             <input class="itpw" type="text" name="username" placeholder="Username"><br>
             <input class="itpw" type="password" name="password" placeholder="Password"><br>
 			<input class="itpw" type="email" name="email" placeholder="Email"><br>
@@ -32,7 +32,7 @@
 
 <!-- validasi registrasi -->
 <?php
-include ("connection.php");
+include ("fungsi/connection.php");
 
 
 if(isset($_GET['username'])){
@@ -56,6 +56,14 @@ if(isset($_GET['pin'])){
 	}
 	if($_GET['pin'] == "angka"){
 		echo "<br><br><center><h5 style='color:red'>PIN harus berupa angka</h5></center>";
+	}
+}
+if(isset($_GET['pesan'])){
+	if($_GET['pesan'] == "usernametelahdigunakan"){
+		echo "<br><br><center><h5 style='color:red'>Username telah digunakan</h5></center>";
+	}
+	if($_GET['pesan'] == "emailtelahdigunakan"){
+		echo "<br><br><center><h5 style='color:red'>Email telah digunakan</h5></center>";
 	}
 }
 ?>

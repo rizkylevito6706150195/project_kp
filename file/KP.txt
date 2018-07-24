@@ -13,3 +13,8 @@ tes keseluruhan, koreksi dan revisi	4 hari
 masalah:
 memasukkan semua jawaban ke database sesuai dengan form yang dipilih (termasuk halaman profil)
 
+
+desain:
+profil mentee dan mentor
+logbook mentor
+semua tabel

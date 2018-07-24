@@ -8,19 +8,19 @@ $pin		= $_POST["pin"];
 $level		= 'user_mentee';
 
 if ($username == ""){
-	header("location:registrasi.php?username=kosong");
+	header("location:../registrasi.php?username=kosong");
 } else
 if ($password == ""){
-	header("location:registrasi.php?password=kosong");
+	header("location:../registrasi.php?password=kosong");
 } else
 if ($email == ""){
-	header("location:registrasi.php?email=kosong");
+	header("location:../registrasi.php?email=kosong");
 } else
 if ($pin == ""){
-	header("location:registrasi.php?pin=kosong");
+	header("location:../registrasi.php?pin=kosong");
 }
 if (!is_numeric($pin)){
-	header("location:registrasi.php?pin=angka");
+	header("location:../registrasi.php?pin=angka");
 }
 	
 function valid_email($email) {
@@ -32,9 +32,17 @@ if( !valid_email($email) ) {
 }
 
 $cekdata="select username from user where username='$username'";
+$cekdata2="select email from user where email='$email'";
 $ada=mysqli_query($conn, $cekdata) or die(mysql_error());
+$ada2=mysqli_query($conn, $cekdata2) or die(mysql_error());
 if(mysqli_num_rows($ada)>0){
-	header("location:registrasi.php?telahdigunakan");
+	header("location:../registrasi.php?pesan=usernametelahdigunakan");
+	die;
+	//die("username telah digunakan");
+}
+if(mysqli_num_rows($ada2)>0){
+	header("location:../registrasi.php?pesan=emailtelahdigunakan");
+	die;
 	//die("username telah digunakan");
 }
 
@@ -44,5 +52,5 @@ $hasil = mysqli_query($conn,$sqlstr);
 echo "Registrasi berhasil";
 
 ?>
-
-<a href="index.php">Klik disini untuk melanjutkan</a>
+<br><br>
+<a href="../index.php">Klik disini untuk melanjutkan</a>
