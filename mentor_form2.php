@@ -113,12 +113,12 @@ input[type=submit]:hover {
 $username	= $_SESSION['username'];
 
 //cek history
-$check=mysqli_query($conn,"select * from history_mentor where username='$username' and nomor_form = '2'");
+/*$check=mysqli_query($conn,"select * from history_mentor where username='$username' and nomor_form = '2'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
 	echo "Anda sudah mengisi form ini"; //cek
 	die;
-}
+}*/
 ?>
 
 

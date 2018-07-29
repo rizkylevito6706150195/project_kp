@@ -69,12 +69,11 @@ if (!$query) {
 
 
 
-
+<!--
 <?php
 include ("fungsi/connection.php");
 
-$sql = 'SELECT * 
-		FROM profil';
+$sql = 'SELECT * FROM profil_mentee';
 		
 $query = mysqli_query($conn, $sql);
 
@@ -89,7 +88,7 @@ if (!$query) {
 </head>
 <center>
 <body>
-	<br><h2>Profil User</h2><br>
+	<br><h2>Profil Mentee</h2><br>
 	<table class="data-table" border='1' Width='1000'>
 		<thead>
 			<tr>
@@ -125,11 +124,4 @@ if (!$query) {
 </body>
 </center>
 </html>
-
-
-
-
-
-
-
-
+-->

@@ -34,7 +34,7 @@ include ("fungsi/connection.php");
 /* tes session */
 /*echo $_SESSION['username'];*/
 
-$sql = "SELECT * FROM profil WHERE username= '". $_SESSION['username']."'" ;
+$sql = "SELECT * FROM profil_mentee WHERE username= '". $_SESSION['username']."'" ;
 		
 $query = mysqli_query($conn, $sql);
 
@@ -56,17 +56,35 @@ while ($row = mysqli_fetch_array($query))
 	{
 	echo "Nama\t:" . $row['nama'];
 	echo "<br><br>";
-	echo "Nippos\t:";$row['nippos'];
+	
+	echo "Nippos\t:" . $row['nippos'];
 	echo "<br><br>";
+	
+	echo "Tempat, tanggal lahir\t:" . $row['tempat_tanggal_lahir'];
+	echo "<br><br>";
+	
+	echo "Jabatan saat ini\t:" . $row['jabatan_saat_ini'];
+	echo "<br><br>";
+	
 	echo "Kantor\t:" . $row['kantor'];
 	echo "<br><br>";
+	
 	echo "Tanggal mulai bekerja\t:" . $row['tgl_mulai_bekerja'];
 	echo "<br><br>";
+	
+	echo "Jabatan yang pernah diduduki\t:" . $row['jabatan_yang_pernah_diduduki'];
+	echo "<br><br>";
+	
 	echo "Pendidikan/jurusan\t:" . $row['pendidikan_jurusan'];
 	echo "<br><br>";
+	
 	echo "Alamat email\t:" . $row['alamat_email'];
 	echo "<br><br>";
+	
 	echo "No.Handphone\t:" . $row['no_hp'];
+	echo "<br><br>";
+	
+	echo "Nama mentor\t:" . $row['nama_mentor'];
 	}
 ?>
 

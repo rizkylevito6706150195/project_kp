@@ -33,7 +33,7 @@ $jawaban19	= $_POST['jawaban19'];
 
 //untuk history
 date_default_timezone_set("ASIA/JAKARTA");
-$tanggal	= date("l, Y-m-d, H:i:s");
+$tanggal	= date("l, d-m-Y, H:i:s");
 
 
 if(empty($jawaban1) or empty($jawaban2) or empty($jawaban3) or empty($jawaban4) or empty($jawaban5) or empty($jawaban6) or empty($jawaban7) or empty($jawaban8) or empty($jawaban9)

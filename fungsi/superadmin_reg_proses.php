@@ -8,19 +8,19 @@ $pin		= $_POST["pin"];
 $level		= $_POST["jenisakun"];
 
 if ($username == ""){
-	header("location:superadmin_reg.php?username=kosong");
+	header("location:../superadmin_reg.php?username=kosong");
 } else
 if ($password == ""){
-	header("location:superadmin_reg.php?password=kosong");
+	header("location:../superadmin_reg.php?password=kosong");
 } else
 if ($email == ""){
-	header("location:superadmin_reg.php?email=kosong");
+	header("location:../superadmin_reg.php?email=kosong");
 } else
 if ($pin == ""){
-	header("location:superadmin_reg.php?pin=kosong");
+	header("location:../superadmin_reg.php?pin=kosong");
 }
 if (!is_numeric($pin)){
-	header("location:superadmin_reg.php?pin=angka");
+	header("location:../superadmin_reg.php?pin=angka");
 }
 	
 function valid_email($email) {
@@ -34,7 +34,7 @@ if( !valid_email($email) ) {
 $cekdata="select username from user where username='$username'";
 $ada=mysqli_query($conn, $cekdata) or die(mysql_error());
 if(mysqli_num_rows($ada)>0){
-	header("location:superadmin_reg.php?username=telahdigunakan");
+	header("location:../superadmin_reg.php?username=telahdigunakan");
 	die("username telah digunakan");
 }
 
@@ -45,4 +45,4 @@ echo "Registrasi berhasil";
 
 ?>
 <br><br>
-<a href="index.php">Klik disini untuk melanjutkan</a>
+<a href="../index.php">Klik disini untuk melanjutkan</a>

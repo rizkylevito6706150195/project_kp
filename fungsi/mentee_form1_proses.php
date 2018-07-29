@@ -15,12 +15,14 @@ $nippos 	= $_POST['nippos'];
 $ttl 		= $_POST['ttl'];
 $jabatan 	= $_POST['jabatan'];
 $kntr 		= $_POST['kntr'];
-$tglmb 		= $_POST['tglmb'];
-$jabatanypd	= $_POST['jabatanypd'];
+$tglmbx 	= $_POST['tglmb'];			$tglmb = date("d-m-Y", strtotime($tglmbx));
+$jabatanypd	= $_POST['jabatanypd'];		
 $pndj 		= $_POST['pndj'];
 $email 		= $_POST['email'];
 $hp 		= $_POST['hp'];
 $namamentor	= $_POST['namamentor'];
+$periode1x	= $_POST['periode1'];		$periode1 = date("d-m-Y", strtotime($periode1x));
+$periode2x	= $_POST['periode2'];		$periode2 = date("d-m-Y", strtotime($periode2x));
 
 $jawaban1	= $_POST['jawaban1'];
 $jawaban2	= $_POST['jawaban2'];
@@ -34,9 +36,10 @@ $jawaban8	= $_POST['jawaban8'];
 
 //untuk history
 date_default_timezone_set("ASIA/JAKARTA");
-$tanggal	= date("l, Y-m-d, H:i:s");
+$tanggal	= date("l, d-m-Y, H:i:s");
 
-if(empty($nama) or empty($nippos) or empty($kntr) or empty($tglmb) or empty($pndj) or empty($email) or empty($hp)
+if(empty($nama) or empty($nippos) or empty($ttl) or empty($jabatan) or empty($kntr) or empty($tglmb) or empty($jabatanypd) or empty($pndj) or empty($email) or empty($hp)
+	or empty($namamentor) or empty($periode1) or empty($periode2)
 	or empty($jawaban1) or empty($jawaban2) or empty($jawaban3) or empty($jawaban4) or empty($jawaban5) or empty($jawaban6) or empty($jawaban7) or empty($jawaban8)){
 	
 	/* simpan data jika validasi gagal */
@@ -51,6 +54,8 @@ if(empty($nama) or empty($nippos) or empty($kntr) or empty($tglmb) or empty($pnd
 	$_SESSION['jwb9']	= $email;
 	$_SESSION['jwb10']	= $hp;
 	$_SESSION['jwb11']	= $namamentor;
+	$_SESSION['jwb12']	= $periode1;
+	$_SESSION['jwb13']	= $periode2;
 
 	$_SESSION['jawaban1'] 	= $jawaban1;
 	$_SESSION['jawaban2']	= $jawaban2;
@@ -70,6 +75,10 @@ if(!is_numeric($nippos) or !is_numeric($hp)){
 	die;
 }
 
+if($periode1 > $periode2){
+	header("location:../mentee_form1.php?pesan=error3");
+	die;
+}
 
 function valid_email($email) {
         return !!filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -81,8 +90,10 @@ if( !valid_email($email) ) {
 
 
 
-$sql1 = "INSERT INTO profil_mentee (username, nama, nippos, tempat_tanggal_lahir, jabatan_saat_ini, kantor, tgl_mulai_bekerja, jabatan_yang_pernah_diduduki, pendidikan_jurusan, alamat_email, no_hp, nama_mentor) 
-		VALUES ('$username', '$nama', '$nippos', '$ttl', '$jabatan', '$kntr', '$tglmb', '$jabatanypd', '$pndj', '$email', '$hp', '$namamentor' )";
+
+
+$sql1 = "INSERT INTO profil_mentee (username, nama, nippos, tempat_tanggal_lahir, jabatan_saat_ini, kantor, tgl_mulai_bekerja, jabatan_yang_pernah_diduduki, pendidikan_jurusan, alamat_email, no_hp, nama_mentor, periode_awal, periode_akhir) 
+		VALUES ('$username', '$nama', '$nippos', '$ttl', '$jabatan', '$kntr', '$tglmb', '$jabatanypd', '$pndj', '$email', '$hp', '$namamentor', '$periode1', '$periode2' )";
 $query = mysqli_query($conn, $sql1);
 
 $sql2 = "INSERT INTO data_form_mentee (username, nomor_form, jawaban1, jawaban2, jawaban3, jawaban4, jawaban5, jawaban6, jawaban7, jawaban8) 

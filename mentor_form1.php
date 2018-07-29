@@ -112,15 +112,12 @@ input[type=submit]:hover {
 $username	= $_SESSION['username'];
 
 //cek db profil
-$check=mysqli_query($conn,"select * from profil_mentor where username='$username'");
+/*$check=mysqli_query($conn,"select * from profil_mentor where username='$username'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
 	echo "Anda sudah mengisi form ini"; //cek
 	die;
-}
-
-
-
+}*/
 ?>
 
 <div class="container">
@@ -156,12 +153,12 @@ if(isset($_GET['pesan'])){
  
  <div class="row">
       <div class="col-25"> <label>Kantor</label> </div>
-      <div class="col-75"> <input type="text" name="kntr" value="<?php if(isset($_SESSION['jwb5'])) echo $_SESSION['jwb5']; ?>"> </div>
+      <div class="col-75"> <input type="text" name="kntr" value="<?php if(isset($_SESSION['jwb4'])) echo $_SESSION['jwb4']; ?>"> </div>
  </div>
  
  <div class="row">
       <div class="col-25"> <label>Jabatan yang sedang ditempati</label> </div>
-      <div class="col-75"> <input type="text" name="jabatan" value="<?php if(isset($_SESSION['jwb4'])) echo $_SESSION['jwb4']; ?>"> </div>
+      <div class="col-75"> <input type="text" name="jabatan" value="<?php if(isset($_SESSION['jwb5'])) echo $_SESSION['jwb5']; ?>"> </div>
  </div>
  
 
@@ -196,6 +193,11 @@ if(isset($_GET['pesan'])){
  <div class="row">
       <div class="col-25"> <label>Nama <i>Mentee</i></label> </div>
       <div class="col-75"> <input type="text" name="namamentee" value="<?php if(isset($_SESSION['jwb11'])) echo $_SESSION['jwb11']; ?>"> </div>
+ </div>
+ 
+ <div class="row">
+      <div class="col-25"> <label>Periode Mentoring</label> </div>
+      <div class="col-75"> <input type="date" name="periode1" min="1900-01-01"> sampai dengan <input type="date" name="periode2" min="periode1"> </div>
  </div>
  
  <br><br><br><br>

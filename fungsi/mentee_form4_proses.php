@@ -10,7 +10,7 @@ header("Location:./index.php");
 
 $username	= $_SESSION['username'];
 
-$data1	= $_POST['data1'];
+$data1x	= $_POST['data1'];			$data1 = date("d-m-Y", strtotime($data1x));
 $data2	= $_POST['data2'];
 $data3	= $_POST['data3'];
 
@@ -25,7 +25,7 @@ $jawaban7	= $_POST['jawaban7'];
 
 //untuk history
 date_default_timezone_set("ASIA/JAKARTA");
-$tanggal	= date("l, Y-m-d, H:i:s");
+$tanggal	= date("l, d-m-Y, H:i:s");
 
 if(empty($data1) or empty($data2) or empty($data3) or empty($jawaban1) or empty($jawaban2) or empty($jawaban3) or empty($jawaban4) or empty($jawaban5) or empty($jawaban6) or empty($jawaban7)){
 	

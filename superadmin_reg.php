@@ -128,7 +128,7 @@ if(isset($_GET['pin'])){
 
 
 <div class="container">
-<form action="superadmin_reg_proses.php" method="post"><br>
+<form action="fungsi/superadmin_reg_proses.php" method="post"><br>
 	<div class="row">
       <div class="col-25">
         <label for="fname">Username</label>

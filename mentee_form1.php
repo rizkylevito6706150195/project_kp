@@ -107,12 +107,12 @@ input[type=submit]:hover {
 $username	= $_SESSION['username'];
 
 //cek db profil
-$check=mysqli_query($conn,"select * from profil_mentee where username='$username'");
+/*$check=mysqli_query($conn,"select * from profil_mentee where username='$username'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
 	header("location:mentee_home.php?pesan=error1");
 	die;
-}
+}*/
 ?>
 
 
@@ -126,6 +126,9 @@ if(isset($_GET['pesan'])){
 	}
 	if($_GET['pesan'] == "error2"){
 		echo "<br><br><center><h4 style='color:red'>Nippos atau nomor hp harus berupa angka</h4></center>";
+	}
+	if($_GET['pesan'] == "error3"){
+		echo "<br><br><center><h4 style='color:red'>Ada kesalahan pada periode mentoring</h4></center>";
 	}
 }
 ?>
@@ -188,6 +191,12 @@ if(isset($_GET['pesan'])){
       <div class="col-25"> <label>Nama Mentor</label> </div>
       <div class="col-75"> <input type="text" name="namamentor" value="<?php if(isset($_SESSION['jwb11'])) echo $_SESSION['jwb11']; ?>"> </div>
  </div>
+ 
+ <div class="row">
+      <div class="col-25"> <label>Periode Mentoring</label> </div>
+      <div class="col-75"> <input type="date" name="periode1" min="1900-01-01"> sampai dengan <input type="date" name="periode2" min="periode1"> </div>
+ </div>
+ 
  
  <br><br><br><br>
 

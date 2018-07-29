@@ -109,12 +109,12 @@ input[type=submit]:hover {
 $username	= $_SESSION['username'];
 
 //cek history
-$check=mysqli_query($conn,"select * from history_mentee where username='$username' and nomor_form = '2'");
+/*$check=mysqli_query($conn,"select * from history_mentee where username='$username' and nomor_form = '2'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
 	header("location:mentee_home.php?pesan=error1");
 	die;
-}
+}*/
 ?>
 
 <div class="container">

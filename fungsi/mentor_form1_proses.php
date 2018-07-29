@@ -15,12 +15,14 @@ $nippos 	= $_POST['nippos'];
 $ttl 		= $_POST['ttl'];
 $kntr 		= $_POST['kntr'];
 $jabatan 	= $_POST['jabatan'];
-$tglmb 		= $_POST['tglmb'];
+$tglmbx 	= $_POST['tglmb'];			$tglmb = date("d-m-Y", strtotime($tglmbx));
 $jabatanypd	= $_POST['jabatanypd'];
 $pndj 		= $_POST['pndj'];
 $email 		= $_POST['email'];
 $hp 		= $_POST['hp'];
 $namamentee	= $_POST['namamentee'];
+$periode1x	= $_POST['periode1'];		$periode1 = date("d-m-Y", strtotime($periode1x));
+$periode2x	= $_POST['periode2'];		$periode2 = date("d-m-Y", strtotime($periode2x));
 
 $jawaban1	= $_POST['jawaban1'];
 $jawaban2	= $_POST['jawaban2'];
@@ -35,10 +37,10 @@ $jawaban8	= $_POST['jawaban8'];
 
 //untuk history
 date_default_timezone_set("ASIA/JAKARTA");
-$tanggal	= date("l, Y-m-d, H:i:s");
+$tanggal	= date("l, d-m-Y, H:i:s");
 
 if(empty($nama) or empty($nippos) or empty($ttl) or empty($kntr) or empty($jabatan) or empty($tglmb) or empty($jabatanypd) or empty($pndj) or empty($email) or empty($hp) 
-	or empty($namamentee) 
+	or empty($namamentee) or empty($periode1) or empty($periode2) 
 	or empty($jawaban1) or empty($jawaban2) or empty($jawaban3) or empty($jawaban4) or empty($jawaban5) or empty($jawaban6) or empty($jawaban7) or empty($jawaban8)){
 	/*echo "anda belum melengkapi semua form"; 
 	$kembali = 'form1.php';
@@ -58,6 +60,8 @@ if(empty($nama) or empty($nippos) or empty($ttl) or empty($kntr) or empty($jabat
 	$_SESSION['jwb9']	= $email;
 	$_SESSION['jwb10']	= $hp;
 	$_SESSION['jwb11']	= $namamentee;
+	$_SESSION['jwb12']	= $periode1;
+	$_SESSION['jwb13']	= $periode2;
 
 	$_SESSION['jawaban1'] 	= $jawaban1;
 	$_SESSION['jawaban2']	= $jawaban2;
@@ -86,8 +90,10 @@ function valid_email($email) {
 
 
 
-$sql1 = "INSERT INTO profil_mentor (username, nama, nippos, tempat_tanggal_lahir, kantor, jabatan_yang_sedang_ditempati, tgl_mulai_bekerja, jabatan_yang_pernah_ditempati, pendidikan_jurusan, alamat_email, no_hp, nama_mentee) 
-		VALUES ('$username', '$nama', '$nippos', '$ttl', '$kntr', '$jabatan', '$tglmb', '$jabatanypd', '$pndj', '$email', '$hp', '$namamentee' )";
+$sql1 = "INSERT INTO profil_mentor (username, nama, nippos, tempat_tanggal_lahir, kantor, jabatan_yang_sedang_ditempati, tgl_mulai_bekerja, jabatan_yang_pernah_ditempati, 
+		pendidikan_jurusan, alamat_email, no_hp, nama_mentee, periode_awal, periode_akhir) 
+		VALUES ('$username', '$nama', '$nippos', '$ttl', '$kntr', '$jabatan', '$tglmb', '$jabatanypd', 
+				'$pndj', '$email', '$hp', '$namamentee', '$periode1', '$periode2')";
 $query = mysqli_query($conn, $sql1);
 
 $sql2 = "INSERT INTO data_form_mentor (username, nomor_form, jawaban1, jawaban2, jawaban3, jawaban4, jawaban5, jawaban6, jawaban7, jawaban8) 

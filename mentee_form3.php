@@ -107,12 +107,12 @@ input[type=submit]:hover {
 $username	= $_SESSION['username'];
 
 //cek history
-$check=mysqli_query($conn,"select * from history_mentee where username='$username' and nomor_form = '3'");
+/*$check=mysqli_query($conn,"select * from history_mentee where username='$username' and nomor_form = '3'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
 	header("location:mentee_home.php?pesan=error1");
 	die;
-}
+}*/
 ?>
 
 <div class="container">
@@ -167,7 +167,7 @@ if(isset($_GET['pesan'])){
   <br><br>
   <br><br>
   
-  <b>4. Saya diberi kesempatan untuk mempraktekan proses kerja baru</b>
+  <b>4. Saya diberi kesempatan untuk mempraktekan proses kerja baru.</b>
   <br><br>
   <input type="radio" name="jawaban4" value="Sangat Setuju"> Sangat Setuju
   <br><br>
@@ -239,7 +239,7 @@ if(isset($_GET['pesan'])){
   <br><br>
   <br><br>
   
-  <b>10. Mentor memberikan motivasi untuk membangun perusahaan ini</b>
+  <b>10. Mentor memberikan motivasi untuk membangun perusahaan ini.</b>
   <br><br>
   <input type="radio" name="jawaban10" value="Sangat Setuju"> Sangat Setuju
   <br><br>
@@ -299,7 +299,7 @@ if(isset($_GET['pesan'])){
   <br><br>
   <br><br>
   
-  <b>15. Mentor menganggap program ini efektif dalam peningkatan kinerja karyawan</b>
+  <b>15. Mentor menganggap program ini efektif dalam peningkatan kinerja karyawan.</b>
   <br><br>
   <input type="radio" name="jawaban15" value="Sangat Setuju"> Sangat Setuju
   <br><br>
@@ -311,7 +311,7 @@ if(isset($_GET['pesan'])){
   <br><br>
   <br><br>
   
-  <b>16. Mentor saya memperhatikan kepentingan pekerjaan dalam karir saya</b>
+  <b>16. Mentor saya memperhatikan kepentingan pekerjaan dalam karir saya.</b>
   <br><br>
   <input type="radio" name="jawaban16" value="Sangat Setuju"> Sangat Setuju
   <br><br>

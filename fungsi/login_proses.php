@@ -3,27 +3,23 @@ include ("connection.php");
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$usernamepassword = "";
-$_SESSION['status'] = "";
 
-if ($username == ""){
+if (empty($username)){
 	header("location:../index.php?username=kosong");
+	die;
 } else
-if ($password == ""){
+if (empty($password)){
 	header("location:../index.php?password=kosong");
-} else
+	die;
+}
+
 
 $query = mysqli_query($conn, "select * from user where username='$username' and password='$password'");
-
-if($query === FALSE) { 
-    die;
-}
-	
 $cek = mysqli_num_rows($query);
-
-if ($username != "" && $password != ""){
+	
 if($cek == 0){
-	header("../location:index.php?usernamepassword=salah");
+	header("location:../index.php?usernamepassword=salah");
+	die;
 } else{
 	$row = mysqli_fetch_assoc($query);
 		if($row['level'] == 'user_mentee'){
@@ -62,5 +58,4 @@ if($cek == 0){
 			header("location:../superadmin.php");
 		}
 	}
-}
 ?>

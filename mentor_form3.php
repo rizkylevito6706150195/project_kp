@@ -112,12 +112,12 @@ input[type=submit]:hover {
 $username	= $_SESSION['username'];
 
 //cek history
-$check=mysqli_query($conn,"select * from history_mentor where username='$username' and nomor_form = '3'");
+/*$check=mysqli_query($conn,"select * from history_mentor where username='$username' and nomor_form = '3'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
 	echo "Anda sudah mengisi form ini"; //cek
 	die;
-}
+}*/
 ?>
 
 <div class="container">
@@ -136,27 +136,27 @@ if(isset($_GET['pesan'])){
 <center><br><br><br><h3>Form 3</b></h3><br><br><br></center><br><br>
 
 
-  Sejauh mana pengetahuan anda mengenai pengembangan karir?	
+  Sejauh mana pengetahuan anda mengenai pengembangan karir?
   <br> <textarea name="jawaban1" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban1'])) echo $_SESSION['jawaban1']; ?></textarea><br><br>
-  Apakah program mentoring dibuat untuk mengembangkan karir?	
+  Apakah program mentoring dibuat untuk mengembangkan karir?
   <br> <textarea name="jawaban2" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban2'])) echo $_SESSION['jawaban2']; ?></textarea><br><br>
-  Apakah mentoring dapat dijadikan sarana pengembangan karir?	
+  Apakah mentoring dapat dijadikan sarana pengembangan karir?
   <br> <textarea name="jawaban3" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban3'])) echo $_SESSION['jawaban3']; ?></textarea><br><br>
-  Apa yang menjadi tugas dan fungsi mentor	
+  Apa yang menjadi tugas dan fungsi mentor
   <br> <textarea name="jawaban4" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban4'])) echo $_SESSION['jawaban4']; ?></textarea><br><br>
-  Apakah mentoring dilakukan dengan kurikulum yang telah disusun sebelumnya?	
+  Apakah mentoring dilakukan dengan kurikulum yang telah disusun sebelumnya?
   <br> <textarea name="jawaban5" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban5'])) echo $_SESSION['jawaban5']; ?></textarea><br><br>
-  Apakah mentoring sangat diperlukan untuk mengembangkan karir karyawan	
+  Apakah mentoring sangat diperlukan untuk mengembangkan karir karyawan
   <br> <textarea name="jawaban6" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban6'])) echo $_SESSION['jawaban6']; ?></textarea><br><br>
-  Dalam bentuk apa saja pelaksanaan program mentoring?	
+  Dalam bentuk apa saja pelaksanaan program mentoring?
   <br> <textarea name="jawaban7" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban7'])) echo $_SESSION['jawaban7']; ?></textarea><br><br>
-  Strategi apakah yang dilakukan oleh anda dalam upaya untuk mengembangkan karir peserta mentoring?	
+  Strategi apakah yang dilakukan oleh anda dalam upaya untuk mengembangkan karir peserta mentoring?
   <br> <textarea name="jawaban8" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban8'])) echo $_SESSION['jawaban8']; ?></textarea><br><br>
-  Bagaimana cara anda menilai dan mengevaluasi dalam setiap kegiatan mentoring?	
+  Bagaimana cara anda menilai dan mengevaluasi dalam setiap kegiatan mentoring?
   <br> <textarea name="jawaban9" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban9'])) echo $_SESSION['jawaban9']; ?></textarea><br><br>
-  Adakah standar nilai atau kualifikasi untuk menjadi seorang mentor?	
+  Adakah standar nilai atau kualifikasi untuk menjadi seorang mentor?
   <br> <textarea name="jawaban10" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban10'])) echo $_SESSION['jawaban10']; ?></textarea><br><br>
-  Perubahan seperti apa sajakah yang dialami peserta mentoring setelah mengikuti program ini?	
+  Perubahan seperti apa sajakah yang dialami peserta mentoring setelah mengikuti program ini?
   <br> <textarea name="jawaban11" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban11'])) echo $_SESSION['jawaban11']; ?></textarea><br><br>
 
  <br>
