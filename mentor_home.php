@@ -27,6 +27,13 @@ if(!isset($_SESSION['username']))
     header('Location: index.php');
     exit();
 }
+
+/* validasi level user */
+if($_SESSION['level'] != 'mentor')
+{
+	header('Location: index.php');
+    exit();
+}
 ?>
 
 <?php
@@ -44,7 +51,9 @@ if(isset($_GET['pilihan'])){
 <form action="fungsi/mentor_combobox_proses.php" method="post">
 <select name="pilihan" onchange="handleSelect(this)">
 	<option value="" selected>Silahkan pilih form</option>
-    <option value=""> Form 1 </option>
-    <option value=""> Form 2 </option>
+    <option value="form1"> Form 1 (Personal Detail) </option>
+    <option value="form2"> Form 2 (Kuesioner)</option>
+	<option value="form3"> Form 3 </option>
+	<option value="form4"> Form 4 (Evaluasi) </option>
 </select>
 <input type="submit" name="Submit" value="submit">

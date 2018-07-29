@@ -7,24 +7,17 @@
     <meta name="viewport" content="width=device-width , initial-scale=1">
   </head>
   <body>
-
     <div id="login"><!-- membuat sebuah div id dengan tujuan sebagai background utama  -->
-      <div class="center"><!-- div dengan class center bertujuan untuk membuat posisi tag form yang akan dibuat akan menjadi rata tengah -->
-
-
-	  <h2>Login</h2> <!-- membuat judul pembuka -->
-
-          <form class="fl" action="fungsi/login_proses.php" method="post">
-            <input class="itpw" type="text" name="username" placeholder="Username"><br>
-            <input class="itpw" type="password" name="password" placeholder="Password"><br>
-            <input class="its" type="submit" name="login" value="login">
-          </form>
-
-          <p><a href="lupapassword.php">Lupa Password?</a> | <a href="registrasi.php">Registrasi</a>  </p>
-
+		<div class="center"><!-- div dengan class center bertujuan untuk membuat posisi tag form yang akan dibuat akan menjadi rata tengah -->
+		  <h2>Login</h2> <!-- membuat judul pembuka -->
+			<form class="fl" action="fungsi/login_proses.php" method="post">
+				<input class="itpw" type="text" name="username" placeholder="Username"><br>
+				<input class="itpw" type="password" name="password" placeholder="Password"><br>
+				<input class="its" type="submit" name="login" value="login">
+			</form>
+				<p><a href="lupapassword.php">Lupa Password?</a> | <a href="registrasi.php">Registrasi</a>  </p>
 		</div>
     </div>
-
   </body>
 </html>
 
@@ -48,6 +41,5 @@ if(isset($_GET['usernamepassword'])){
 		echo "<br><br><center><h5 style='color:red'>Username atau password salah</h5></center>";
 	}
 }
-
 ?>
 

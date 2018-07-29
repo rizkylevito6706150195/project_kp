@@ -7,28 +7,30 @@ $email		= $_POST["email"];
 $pin		= $_POST["pin"];
 $level		= 'user_mentee';
 
+
 if ($username == ""){
 	header("location:../registrasi.php?username=kosong");
-} else
-if ($password == ""){
+	die;
+} else if ($password == ""){
 	header("location:../registrasi.php?password=kosong");
-} else
-if ($email == ""){
+	die;
+} else if ($email == ""){
 	header("location:../registrasi.php?email=kosong");
-} else
-if ($pin == ""){
+	die;
+} else if ($pin == ""){
 	header("location:../registrasi.php?pin=kosong");
-}
-if (!is_numeric($pin)){
+	die;
+} else if (!is_numeric($pin)){
 	header("location:../registrasi.php?pin=angka");
+	die;
 }
-	
+
+
 function valid_email($email) {
         return !!filter_var($email, FILTER_VALIDATE_EMAIL);
     }
-	
 if( !valid_email($email) ) {
-	die("Format email salah");
+	die;
 }
 
 $cekdata="select username from user where username='$username'";
@@ -38,19 +40,14 @@ $ada2=mysqli_query($conn, $cekdata2) or die(mysql_error());
 if(mysqli_num_rows($ada)>0){
 	header("location:../registrasi.php?pesan=usernametelahdigunakan");
 	die;
-	//die("username telah digunakan");
 }
 if(mysqli_num_rows($ada2)>0){
 	header("location:../registrasi.php?pesan=emailtelahdigunakan");
 	die;
-	//die("username telah digunakan");
 }
 
 $sqlstr="insert into user (username, password, email, level)
 values ('$username', '$password', '$email', '$level')";
 $hasil = mysqli_query($conn,$sqlstr);
-echo "Registrasi berhasil";
-
+header("location:../registrasi.php?pesan=registrasiberhasil");
 ?>
-<br><br>
-<a href="../index.php">Klik disini untuk melanjutkan</a>

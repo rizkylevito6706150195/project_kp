@@ -6,18 +6,31 @@ $email				= $_POST["email"];
 $pin				= $_POST["pin"];
 $passwordbaru		= $_POST["passwordbaru"];
 
+
+function valid_email($email) {
+        return !!filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
+
 if (empty($username)){
 	header("location:../lupapassword.php?username=kosong");
-}
-if (empty($email)){
+	die;
+} else if (empty($email)){
 	header("location:../lupapassword.php?email=kosong");
+	die;
+} else if( !valid_email($email) ) {
+	header("location:../lupapassword.php?email=salah");
+	die;
 }
-if (empty($pin)){
+	else if (empty($pin)){
 	header("location:../lupapassword.php?pin=kosong");
-}
-if (empty($passwordbaru)){
+	die;
+} else if (empty($passwordbaru)){
 	header("location:../lupapassword.php?passwordbaru=kosong");
+	die;
 }
+
+
+
 
 
 $cekdata="select * from user where username='$username' and email='$email' and pin='$pin'";
@@ -27,13 +40,10 @@ if(mysqli_num_rows($ada)>0){
 	$sql = "UPDATE user SET password='$passwordbaru' WHERE email='$email'";
 	mysqli_query($conn, $sql);
 	header("location:../lupapassword.php?pesan=berhasil");
-	//echo 'Password berhasil diubah';
 } else {
 	header("location:../lupapassword.php?pesan=gagal");
-	//die ('Username, email, atau PIN salah');
+	die;
 }
-
 ?>
-
 <br><br>
 <a href="index.php">Home</a>

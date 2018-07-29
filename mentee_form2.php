@@ -112,12 +112,9 @@ $username	= $_SESSION['username'];
 $check=mysqli_query($conn,"select * from history_mentee where username='$username' and nomor_form = '2'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
-	echo "Anda sudah mengisi form ini"; //cek
+	header("location:mentee_home.php?pesan=error1");
 	die;
 }
-
-
-
 ?>
 
 <div class="container">
@@ -209,13 +206,7 @@ if(isset($_GET['pesan'])){
   
   Apakah anda memiliki saran untuk proses mentoring lebih baik lagi kedepannya?
   <br> <textarea name="jawaban19" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban19'])) echo $_SESSION['jawaban19']; ?></textarea><br><br>
-  
-  
-  
-  
- 
- 
- <br>
+  <br>
  <center><input type="submit" name="submit" value="Submit"></input></center>
 </form>
 <div>

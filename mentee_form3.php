@@ -103,8 +103,6 @@ input[type=submit]:hover {
 </style>
 
 
-
-
 <?php
 $username	= $_SESSION['username'];
 
@@ -112,12 +110,9 @@ $username	= $_SESSION['username'];
 $check=mysqli_query($conn,"select * from history_mentee where username='$username' and nomor_form = '3'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
-	echo "Anda sudah mengisi form ini"; //cek
+	header("location:mentee_home.php?pesan=error1");
 	die;
 }
-
-
-
 ?>
 
 <div class="container">
@@ -327,11 +322,7 @@ if(isset($_GET['pesan'])){
   <input type="radio" name="jawaban16" value="Sangat Tidak Setuju"> Sangat Tidak Setuju
   <br><br>
   <br><br>
-  
-  
-  
- 
- <br>
+  <br>
  <center><input type="submit" name="submit" value="Submit"></input></center>
 </form>
 <div>

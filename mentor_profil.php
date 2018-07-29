@@ -11,13 +11,28 @@
 </ul>
 </div>
 
-
-
 <?php
 include ("fungsi/connection.php");
 session_start();
-/* tes session */
-/*echo $_SESSION['username'];*/
+
+/* validasi halaman tanpa login */
+if(!isset($_SESSION['username']))
+{
+    // belum login
+    header('Location: index.php');
+    exit();
+}
+
+/* validasi level user */
+if($_SESSION['level'] != 'mentor')
+{
+	header('Location: index.php');
+    exit();
+}
+?>
+
+
+<?php
 
 $sql = "SELECT * FROM profil WHERE username= '". $_SESSION['username']."'" ;
 		

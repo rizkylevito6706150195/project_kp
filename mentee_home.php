@@ -46,6 +46,13 @@ if(isset($_GET['pilihan'])){
 		echo "<center><h5 style='color:red'>Anda belum memilih form</h5><br>";
 	}
 }
+
+if(isset($_GET['pesan'])){
+	if($_GET['pesan'] == "error1"){
+		echo "<center><h5 style='color:red'>Anda sudah mengisi form tersebut</h5><br>";
+	}
+}
+
 ?>
 
 <center>

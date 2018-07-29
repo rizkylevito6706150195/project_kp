@@ -103,8 +103,6 @@ input[type=submit]:hover {
 </style>
 
 
-
-
 <?php
 $username	= $_SESSION['username'];
 
@@ -112,12 +110,9 @@ $username	= $_SESSION['username'];
 $check=mysqli_query($conn,"select * from history_mentee where username='$username' and nomor_form = '4'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
-	echo "Anda sudah mengisi form ini"; //cek
+	header("location:mentee_home.php?pesan=error1");
 	die;
 }
-
-
-
 ?>
 
 <div class="container">
@@ -130,6 +125,7 @@ if(isset($_GET['pesan'])){
 	}
 }
 ?>
+
 <center><br><br><br><h3>Form 4 (Evaluasi Mentee)</b></h3><br><br><br></center><br>
  
  <div class="row">
@@ -170,13 +166,7 @@ if(isset($_GET['pesan'])){
   
   7. Apakah ada pelatihan tambahan yang akan membuat perusahaan ini lebih sukses?
   <br> <textarea name="jawaban7" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban7'])) echo $_SESSION['jawaban7']; ?></textarea><br><br>
-  
-  
-  
-  
- 
- 
- <br>
+  <br>
  <center><input type="submit" name="submit" value="Submit"></input></center>
 </form>
 <div>

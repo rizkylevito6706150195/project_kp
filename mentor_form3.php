@@ -111,20 +111,17 @@ input[type=submit]:hover {
 <?php
 $username	= $_SESSION['username'];
 
-//cek db profil
-$check=mysqli_query($conn,"select * from profil_mentor where username='$username'");
+//cek history
+$check=mysqli_query($conn,"select * from history_mentor where username='$username' and nomor_form = '3'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
 	echo "Anda sudah mengisi form ini"; //cek
 	die;
 }
-
-
-
 ?>
 
 <div class="container">
-<form action="fungsi/mentor_form1_proses.php" method="post"><br>
+<form action="fungsi/mentor_form3_proses.php" method="post"><br>
 <div class="row">
 <?php
 if(isset($_GET['pesan'])){
@@ -136,92 +133,32 @@ if(isset($_GET['pesan'])){
 	}
 }
 ?>
-<center><br><br><br><h3>Form 1 (Personal Detail)</b></h3><br><br><br></center>
- <h4>Data Mentor</h4><br>
- 
- <div class="row">
-      <div class="col-25"> <label>Nama</label> </div>
-      <div class="col-75"> <input type="text" name="nama" value="<?php if(isset($_SESSION['jwb1'])) echo $_SESSION['jwb1']; ?>">   </div>
- </div>
- 
- <div class="row">
-      <div class="col-25"> <label>Nippos</label> </div>
-      <div class="col-75"> <input type="text" name="nippos" value="<?php if(isset($_SESSION['jwb2'])) echo $_SESSION['jwb2']; ?>"> </div>
- </div>
- 
- <div class="row">
-      <div class="col-25"> <label>Tempat, Tanggal Lahir</label> </div>
-      <div class="col-75"> <input type="text" name="ttl" value="<?php if(isset($_SESSION['jwb3'])) echo $_SESSION['jwb3']; ?>"> </div>
- </div>
- 
- <div class="row">
-      <div class="col-25"> <label>Kantor</label> </div>
-      <div class="col-75"> <input type="text" name="kntr" value="<?php if(isset($_SESSION['jwb5'])) echo $_SESSION['jwb5']; ?>"> </div>
- </div>
- 
- <div class="row">
-      <div class="col-25"> <label>Jabatan yang sedang ditempati</label> </div>
-      <div class="col-75"> <input type="text" name="jabatan" value="<?php if(isset($_SESSION['jwb4'])) echo $_SESSION['jwb4']; ?>"> </div>
- </div>
- 
+<center><br><br><br><h3>Form 3</b></h3><br><br><br></center><br><br>
 
- 
- <div class="row">
-      <div class="col-25"> <label>Tanggal mulai bekerja</label> </div>
-      <div class="col-75"> <input type="date" name="tglmb" min="1900-01-01"> <!--placeholder="Tanggal/Bulan/Tahun.	Contoh: 1 Januari 2018"--> </div>
- </div>
- 
- <div class="row">
-      <div class="col-25"> <label>Jabatan yang pernah ditempati</label> </div>
-      <div class="col-75"> <input type="text" name="jabatanypd" value="<?php if(isset($_SESSION['jwb7'])) echo $_SESSION['jwb7']; ?>"> </div>
- </div>
- 
 
- 
- <div class="row">
-      <div class="col-25"> <label>Pendidikan / Jurusan</label> </div>
-      <div class="col-75"> <input type="text" name="pndj" value="<?php if(isset($_SESSION['jwb8'])) echo $_SESSION['jwb8']; ?>"> </div>
- </div>
- 
- <div class="row">
-      <div class="col-25"> <label>Alamat E-mail</label> </div>
-      <div class="col-75"> <input type="text" name="email" value="<?php if(isset($_SESSION['jwb9'])) echo $_SESSION['jwb9']; ?>"> </div>
- </div>
- 
- <div class="row">
-      <div class="col-25"> <label>No. Hp</label> </div>
-      <div class="col-75"> <input type="text" name="hp" value="<?php if(isset($_SESSION['jwb10'])) echo $_SESSION['jwb10']; ?>"> </div>
- </div>
- 
- <div class="row">
-      <div class="col-25"> <label>Nama <i>Mentee</i></label> </div>
-      <div class="col-75"> <input type="text" name="namamentee" value="<?php if(isset($_SESSION['jwb11'])) echo $_SESSION['jwb11']; ?>"> </div>
- </div>
- 
- <br><br><br><br>
-
- 
- <h4><i>Project Improvement Report</i></h4><br>
-  <i>Judul Proyek</i>	
+  Sejauh mana pengetahuan anda mengenai pengembangan karir?	
   <br> <textarea name="jawaban1" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban1'])) echo $_SESSION['jawaban1']; ?></textarea><br><br>
-  Latar Belakang atau Alasan Masalah	
+  Apakah program mentoring dibuat untuk mengembangkan karir?	
   <br> <textarea name="jawaban2" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban2'])) echo $_SESSION['jawaban2']; ?></textarea><br><br>
-  <i>Objective</i> dan Target	
+  Apakah mentoring dapat dijadikan sarana pengembangan karir?	
   <br> <textarea name="jawaban3" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban3'])) echo $_SESSION['jawaban3']; ?></textarea><br><br>
-  Analisa	
+  Apa yang menjadi tugas dan fungsi mentor	
   <br> <textarea name="jawaban4" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban4'])) echo $_SESSION['jawaban4']; ?></textarea><br><br>
-  Hasil	
+  Apakah mentoring dilakukan dengan kurikulum yang telah disusun sebelumnya?	
   <br> <textarea name="jawaban5" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban5'])) echo $_SESSION['jawaban5']; ?></textarea><br><br>
-  Rencana Kegiatan	
+  Apakah mentoring sangat diperlukan untuk mengembangkan karir karyawan	
   <br> <textarea name="jawaban6" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban6'])) echo $_SESSION['jawaban6']; ?></textarea><br><br>
-  Rekomendasi / Kesimpulan	
+  Dalam bentuk apa saja pelaksanaan program mentoring?	
   <br> <textarea name="jawaban7" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban7'])) echo $_SESSION['jawaban7']; ?></textarea><br><br>
-  Rencana Tindak Lanjut	
+  Strategi apakah yang dilakukan oleh anda dalam upaya untuk mengembangkan karir peserta mentoring?	
   <br> <textarea name="jawaban8" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban8'])) echo $_SESSION['jawaban8']; ?></textarea><br><br>
+  Bagaimana cara anda menilai dan mengevaluasi dalam setiap kegiatan mentoring?	
+  <br> <textarea name="jawaban9" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban9'])) echo $_SESSION['jawaban9']; ?></textarea><br><br>
+  Adakah standar nilai atau kualifikasi untuk menjadi seorang mentor?	
+  <br> <textarea name="jawaban10" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban10'])) echo $_SESSION['jawaban10']; ?></textarea><br><br>
+  Perubahan seperti apa sajakah yang dialami peserta mentoring setelah mengikuti program ini?	
+  <br> <textarea name="jawaban11" style="width:800px; height: 200px"><?php if(isset($_SESSION['jawaban11'])) echo $_SESSION['jawaban11']; ?></textarea><br><br>
 
-
- 
- 
  <br>
  <center><input type="submit" name="submit" value="Submit"></input></center>
 </form>

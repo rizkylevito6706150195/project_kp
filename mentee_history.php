@@ -38,8 +38,7 @@ if($_SESSION['level'] != 'mentee')
 <?php
 include ("fungsi/connection.php");
 
-$sql = 'SELECT * 
-		FROM history_mentee';
+$sql = 'SELECT * FROM history_mentee';
 		
 $query = mysqli_query($conn, $sql);
 
@@ -47,7 +46,6 @@ if (!$query) {
 	die ('SQL Error: ' . mysqli_error($conn));
 }
 ?>
-
 
 
 <center>
@@ -64,15 +62,15 @@ if (!$query) {
 		<tbody>
 		<?php
 		while ($row = mysqli_fetch_array($query))
-		{
-			
+		{			
 			echo '<tr>
 					<td>'.$row['nomor_form'].'</td>
 					<td>'.$row['judul_form'].'</td>
 					<td>'.$row['status'].'</td>
 					<td>'.$row['tanggal'].'</td>
 				</tr>';
-		}?>
+		}
+		?>
 		</tbody>
 	</table>
 </center>

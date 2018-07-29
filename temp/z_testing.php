@@ -145,7 +145,7 @@ if (!$query) {
 include ("../fungsi/connection.php");
 
 $sql = 'SELECT * 
-		FROM profil';
+		FROM profil_mentee';
 		
 $query = mysqli_query($conn, $sql);
 
@@ -253,7 +253,14 @@ if (!$query) {
 
 <center>
 <form action="z_delete_data_mentee.php" method="post">
-<input type="submit" value="CLEAR DATABASE" />
+<input type="submit" value="CLEAR DATABASE MENTEE" />
 </form>
+
+<br><br>
+
+<form action="" method="post">
+<input type="submit" value="CLEAR DATABASE MENTOR" />
+</form>
+
 </center>
 <br><br><br><br>

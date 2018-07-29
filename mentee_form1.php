@@ -103,22 +103,18 @@ input[type=submit]:hover {
 </style>
 
 
-
-
 <?php
 $username	= $_SESSION['username'];
 
 //cek db profil
-$check=mysqli_query($conn,"select * from profil where username='$username'");
+$check=mysqli_query($conn,"select * from profil_mentee where username='$username'");
 $checkrows=mysqli_num_rows($check);
 if($checkrows>0) {
-	echo "Anda sudah mengisi form ini"; //cek
+	header("location:mentee_home.php?pesan=error1");
 	die;
 }
-
-
-
 ?>
+
 
 <div class="container">
 <form action="fungsi/mentee_form1_proses.php" method="post"><br>

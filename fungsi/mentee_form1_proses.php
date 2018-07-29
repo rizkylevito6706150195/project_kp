@@ -32,18 +32,12 @@ $jawaban7	= $_POST['jawaban7'];
 $jawaban8	= $_POST['jawaban8'];
 
 
-
 //untuk history
 date_default_timezone_set("ASIA/JAKARTA");
 $tanggal	= date("l, Y-m-d, H:i:s");
 
 if(empty($nama) or empty($nippos) or empty($kntr) or empty($tglmb) or empty($pndj) or empty($email) or empty($hp)
 	or empty($jawaban1) or empty($jawaban2) or empty($jawaban3) or empty($jawaban4) or empty($jawaban5) or empty($jawaban6) or empty($jawaban7) or empty($jawaban8)){
-	/*echo "anda belum melengkapi semua form"; 
-	$kembali = 'form1.php';
-	echo "<br><br>"; 
-	echo "<a href='".$kembali."'>Kembali</a>";
-	die;*/
 	
 	/* simpan data jika validasi gagal */
 	$_SESSION['jwb1']	= $nama;
@@ -77,10 +71,9 @@ if(!is_numeric($nippos) or !is_numeric($hp)){
 }
 
 
-
 function valid_email($email) {
         return !!filter_var($email, FILTER_VALIDATE_EMAIL);
-    }
+}
 	
 if( !valid_email($email) ) {
 	die("Format email salah");
@@ -88,7 +81,7 @@ if( !valid_email($email) ) {
 
 
 
-$sql1 = "INSERT INTO profil (username, nama, nippos, tempat_tanggal_lahir, jabatan_saat_ini, kantor, tgl_mulai_bekerja, jabatan_yang_pernah_diduduki, pendidikan_jurusan, alamat_email, no_hp, nama_mentor) 
+$sql1 = "INSERT INTO profil_mentee (username, nama, nippos, tempat_tanggal_lahir, jabatan_saat_ini, kantor, tgl_mulai_bekerja, jabatan_yang_pernah_diduduki, pendidikan_jurusan, alamat_email, no_hp, nama_mentor) 
 		VALUES ('$username', '$nama', '$nippos', '$ttl', '$jabatan', '$kntr', '$tglmb', '$jabatanypd', '$pndj', '$email', '$hp', '$namamentor' )";
 $query = mysqli_query($conn, $sql1);
 
@@ -128,7 +121,7 @@ unset($_SESSION["jawaban7"]);
 unset($_SESSION["jawaban8"]);
 
 echo "Input berhasil";
-
 ?>
+
 <br><br>
 <a href="../mentee_home.php">Klik disini untuk melanjutkan</a>
